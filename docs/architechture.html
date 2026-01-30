@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Architecture | AWS SRE Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1, h2 { color: #111; }
+    ul { line-height: 1.8; }
+    a { color: #2563eb; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<h1>System Architecture</h1>
+
+<p>
+This system is designed as a <strong>small but production-realistic SRE platform</strong>
+on AWS. The goal is not complexity, but reliability, observability, and operational clarity.
+</p>
+
+<h2>High-Level Flow</h2>
+<ul>
+  <li>User traffic enters through AWS Application Load Balancer (ALB)</li>
+  <li>Traffic is routed to Kubernetes services in Amazon EKS</li>
+  <li>Pods run stateless application containers</li>
+  <li>Metrics, logs, and traces are collected for observability</li>
+</ul>
+
+<h2>AWS Components</h2>
+<ul>
+  <li><strong>VPC</strong> – Network isolation across multiple availability zones</li>
+  <li><strong>EKS</strong> – Managed Kubernetes control plane</li>
+  <li><strong>EC2 Worker Nodes</strong> – Container execution</li>
+  <li><strong>ALB Ingress Controller</strong> – External traffic routing</li>
+  <li><strong>CloudWatch</strong> – Logs and basic metrics</li>
+</ul>
+
+<h2>Design Decisions</h2>
+<ul>
+  <li>EKS chosen over ECS to demonstrate Kubernetes operational knowledge</li>
+  <li>Stateless workloads for easy scaling and recovery</li>
+  <li>Infrastructure managed using Terraform to ensure repeatability</li>
+</ul>
+
+<p>
+<a href="index.html">← Back to Home</a>
+</p>
+
+</body>
+</html>
