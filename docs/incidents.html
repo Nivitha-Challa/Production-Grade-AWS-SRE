@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Incidents | AWS SRE Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1, h2 { color: #111; }
+    ul { line-height: 1.8; }
+    .incident {
+      border-left: 4px solid #ef4444;
+      padding-left: 16px;
+      margin-bottom: 40px;
+    }
+    a { color: #2563eb; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<h1>Incident Reports</h1>
+
+<p>
+This page documents failures in the system and how they were handled.
+The focus is on <strong>learning, not blame</strong>.
+</p>
+
+<div class="incident">
+  <h2>Incident #1: Pod CrashLoopBackOff</h2>
+
+  <p><strong>Date:</strong> Jan 2025</p>
+  <p><strong>Severity:</strong> SEV-2</p>
+
+  <h3>Impact</h3>
+  <ul>
+    <li>~2% of requests failed for 6 minutes</li>
+    <li>No data loss</li>
+  </ul>
+
+  <h3>Root Cause</h3>
+  <p>
+A misconfigured environment variable caused the application container
+to fail during startup, leading to repeated pod restarts.
+</p>
+
+  <h3>Detection</h3>
+  <ul>
+    <li>Alert triggered on pod restart rate</li>
+    <li>Error rate exceeded SLO threshold</li>
+  </ul>
+
+  <h3>Resolution</h3>
+  <ul>
+    <li>Rolled back to last known good deployment</li>
+    <li>Validated configuration before redeploy</li>
+  </ul>
+
+  <h3>Prevention</h3>
+  <ul>
+    <li>Added startup config validation</li>
+    <li>Improved CI checks for environment variables</li>
+  </ul>
+</div>
+
+<p>
+<a href="index.html">← Back to Home</a>
+</p>
+
+</body>
+</html>
